@@ -402,7 +402,7 @@ const obras = [
     metodologia: "Prédio em parede de concreto",
     torres: 3,
     uh_pav: 8,
-    pavimentos: "13x3",
+    pavimentos: "3x13",
     uh: 312, lancamento: "—",
     inicio: "—",
     entrega: "—",
@@ -616,8 +616,8 @@ obras.forEach(o => {
       '<div class="popup-row"><strong>CNPJ</strong>' + (o.cnpj || '—') + '</div>' +
       '<div class="popup-row"><strong>CNO</strong>' + (o.cno && o.cno !== '—' ? o.cno : '—') + '</div>' +
       (!o.metodologia.includes('Casa') && o.torres ? '<div class="popup-row"><strong>Torres x Pavimentos</strong>' + (o.pavimentos || '—') + '</div>' : !o.metodologia.includes('Casa') ? '<div class="popup-row"><strong>Torres x Pavimentos</strong>—</div>' : '') +
-      (o.torres ? '<div class="popup-row"><strong>Unid. Hab. / Pavimento</strong>' + (o.uh_pav || '—') + '</div>' : '') +
-      '<div class="popup-row"><strong>Unidades Totais</strong>' + (o.uh ? o.uh + ' UH' : '—') + '</div>' +
+      (o.torres ? '<div class="popup-row"><strong>Unidades por Pavimento</strong>' + (o.uh_pav || '—') + '</div>' : '') +
+      '<div class="popup-row"><strong>Unidades Totais</strong>' + (o.uh ? String(o.uh) : '—') + '</div>' +
       '<div class="popup-row"><strong>Metodologia</strong>' + (o.metodologia || '—') + '</div>' +
       '<div class="popup-row"><strong>Início</strong>' + (o.inicio || '—') + '</div>' +
       '<div class="popup-row"><strong>Entrega Prevista</strong>' + (o.entrega || '—') + '</div>' +
