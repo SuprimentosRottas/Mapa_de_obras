@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Obras Rottas Engenharia</title>
+<title>Rottas - Mapa de Obras</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
@@ -102,11 +102,11 @@
 </head>
 <body>
 <header>
-  <div class="logo-mark">R</div>
-  <h1>Rottas <span>Engenharia</span> — Obras</h1>
+  <img src="data:image/png;base64,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" style="width:38px;height:38px;border-radius:6px;flex-shrink:0" alt="Rottas"/>
+  <h1>Rottas <span>—</span> Mapa de Obras</h1>
   <div class="header-stats">
     <div class="stat"><div class="stat-num">11</div><div class="stat-label">Obras</div></div>
-    <div class="stat"><div class="stat-num" id="header-uh">4.142</div><div class="stat-label">Unidades</div></div>
+    <div class="stat"><div class="stat-num" id="header-uh">4.158</div><div class="stat-label">Unidades</div></div>
     <div class="stat"><div class="stat-num">2</div><div class="stat-label">Estados</div></div>
   </div>
 </header>
@@ -122,16 +122,18 @@
       <div style="position:relative;margin-bottom:10px">
         <span class="material-symbols-outlined" style="position:absolute;left:9px;top:50%;transform:translateY(-50%);font-size:16px;color:#8a9aaa;pointer-events:none">search</span>
         <input id="obra-search" type="text" placeholder="Buscar por nome ou ID..."
-          style="width:100%;padding:7px 10px 7px 32px;border:1px solid #dde3ea;border-radius:6px;
-          font-family:Inter,sans-serif;font-size:12px;color:#0f1923;outline:none;background:#f5f7fa;box-sizing:border-box"
+          style="width:100%;padding:7px 10px 7px 32px;border:1px solid #dde3ea;border-radius:6px;font-family:Inter,sans-serif;font-size:12px;color:#0f1923;outline:none;background:#f5f7fa;box-sizing:border-box"
           oninput="renderList()"
           onfocus="this.style.borderColor='#e05c2a';this.style.background='#fff'"
           onblur="this.style.borderColor='#dde3ea';this.style.background='#f5f7fa'"
         />
       </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
         <div class="sidebar-title" style="margin-bottom:0">Empreendimentos</div>
-        <div id="uh-counter" style="font-size:11px;color:#5a6674;background:#f0f3f6;border-radius:5px;padding:3px 8px;font-weight:600"></div>
+        <div style="display:flex;gap:5px;align-items:center">
+          <div id="obras-counter" style="font-size:11px;color:#5a6674;background:#f0f3f6;border-radius:5px;padding:3px 8px;font-weight:600"></div>
+          <div id="uh-counter" style="font-size:11px;color:#5a6674;background:#f0f3f6;border-radius:5px;padding:3px 8px;font-weight:600"></div>
+        </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:8px">
         <div>
@@ -159,6 +161,21 @@
             <button class="filter-btn" data-filter="Porto">Porto</button>
             <button class="filter-btn" data-filter="Vega">Vega</button>
             <button class="filter-btn" data-filter="MEO">MEO</button>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:10px;color:#8a9aaa;font-weight:600;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px">Prazo de Entrega</div>
+          <div style="position:relative">
+            <span class="material-symbols-outlined" style="position:absolute;left:9px;top:50%;transform:translateY(-50%);font-size:15px;color:#8a9aaa;pointer-events:none">event</span>
+            <select id="prazo-select" onchange="onPrazoChange(this.value)"
+              style="width:100%;padding:7px 10px 7px 30px;border:1px solid #dde3ea;border-radius:6px;font-family:Inter,sans-serif;font-size:12px;color:#0f1923;background:#f5f7fa;outline:none;appearance:none;cursor:pointer">
+              <option value="todos">Todos</option>
+              <option value="3">&lt; 3 meses</option>
+              <option value="6">&lt; 6 meses</option>
+              <option value="12">&lt; 1 ano</option>
+              <option value="24">&lt; 2 anos</option>
+            </select>
+            <span class="material-symbols-outlined" style="position:absolute;right:9px;top:50%;transform:translateY(-50%);font-size:15px;color:#8a9aaa;pointer-events:none">expand_more</span>
           </div>
         </div>
       </div>
@@ -213,8 +230,8 @@ const obras = [
     metodologia: "Prédio em parede de concreto",
     torres: 3,
     uh_pav: 8,
-    pavimentos: "1x20 + 2x18",
-    uh: 448, lancamento: "Set/2025",
+    pavimentos: "2x20 + 1x18",
+    uh: 464, lancamento: "Set/2025",
     inicio: "09/2025",
     entrega: "01/2028",
     fotos: [
@@ -291,7 +308,7 @@ const obras = [
       { cargo: "Analista de Eng.", nome: "Amanda Silva", tel: "5542999445432", teams: "https://teams.microsoft.com/l/chat/0/0?users=amanda.silva@rottasconstrutora.com.br" },
       { cargo: "Adm de Obra", nome: "" },
       { cargo: "Almoxarife", nome: "Cesar Sampaio", tel: "5514991723611", teams: "https://teams.microsoft.com/l/chat/0/0?users=cesar.sampaio@rottasconstrutora.com.br" },
-      { cargo: "Analista PCP", nome: "" },
+      { cargo: "Analista PCP", nome: "Hugo Reynaldo", teams: "https://teams.microsoft.com/l/chat/0/0?users=hugo.reynaldo@rottasconstrutora.com.br" },
       { cargo: "Analista Proj.", nome: "Leticia", teams: "https://teams.microsoft.com/l/chat/0/0?users=leticia.fabri@rottasconstrutora.com.br" },
       { cargo: "Analista Arq.", nome: "" },
       { cargo: "Fiscal", nome: "" }
@@ -327,7 +344,7 @@ const obras = [
       { cargo: "Analista de Eng.", nome: "Rodrigo Anjos", tel: "5542999342006", teams: "https://teams.microsoft.com/l/chat/0/0?users=rodrigo.anjos@rottasconstrutora.com.br" },
       { cargo: "Adm de Obra", nome: "Mikaella", teams: "https://teams.microsoft.com/l/chat/0/0?users=mikaella.winter@rottasconstrutora.com.br" },
       { cargo: "Almoxarife", nome: "Bruno Alves", tel: "5547991209642", teams: "https://teams.microsoft.com/l/chat/0/0?users=bruno.alves@rottasconstrutora.com.br" },
-      { cargo: "Analista PCP", nome: "" },
+      { cargo: "Analista PCP", nome: "Mayra Nunes", teams: "https://teams.microsoft.com/l/chat/0/0?users=mayra.nunes@rottasconstrutora.com.br" },
       { cargo: "Analista Proj.", nome: "Mylena", teams: "https://teams.microsoft.com/l/chat/0/0?users=mylena.ribeiro@rottasconstrutora.com.br" },
       { cargo: "Analista Arq.", nome: "" },
       { cargo: "Fiscal", nome: "" }
@@ -363,7 +380,7 @@ const obras = [
       { cargo: "Analista de Eng.", nome: "Felipe Fagundes", tel: "5547991369261", teams: "https://teams.microsoft.com/l/chat/0/0?users=felipe.fagundes@rottasconstrutora.com.br" },
       { cargo: "Adm de Obra", nome: "Jaqueline Costa", teams: "https://teams.microsoft.com/l/chat/0/0?users=jaqueline.costa@rottasconstrutora.com.br" },
       { cargo: "Almoxarife", nome: "Roberth Martins", tel: "5513981346464", teams: "https://teams.microsoft.com/l/chat/0/0?users=roberth.martins@rottasconstrutora.com.br" },
-      { cargo: "Analista PCP", nome: "" },
+      { cargo: "Analista PCP", nome: "Mayra Nunes", teams: "https://teams.microsoft.com/l/chat/0/0?users=mayra.nunes@rottasconstrutora.com.br" },
       { cargo: "Analista Proj.", nome: "Renata", teams: "https://teams.microsoft.com/l/chat/0/0?users=renata.kuradomi@rottasconstrutora.com.br" },
       { cargo: "Analista Arq.", nome: "" },
       { cargo: "Fiscal", nome: "" }
@@ -398,7 +415,7 @@ const obras = [
       { cargo: "Analista de Eng.", nome: "Daniel Strobel", tel: "5547996315133", teams: "https://teams.microsoft.com/l/chat/0/0?users=daniel.strobel@rottasconstrutora.com.br" },
       { cargo: "Adm de Obra", nome: "Maricleia" },
       { cargo: "Almoxarife", nome: "Vinícius P. da Silva", tel: "5547991957168", teams: "https://teams.microsoft.com/l/chat/0/0?users=vinicius.silva@rottasconstrutora.com.br" },
-      { cargo: "Analista PCP", nome: "" },
+      { cargo: "Analista PCP", nome: "Mayra Nunes", teams: "https://teams.microsoft.com/l/chat/0/0?users=mayra.nunes@rottasconstrutora.com.br" },
       { cargo: "Analista Proj.", nome: "Renata", teams: "https://teams.microsoft.com/l/chat/0/0?users=renata.kuradomi@rottasconstrutora.com.br" },
       { cargo: "Analista Arq.", nome: "" },
       { cargo: "Fiscal", nome: "" }
@@ -434,7 +451,7 @@ const obras = [
       { cargo: "Analista de Eng.", nome: "Claudia Fernandes", tel: "5562981386061", teams: "https://teams.microsoft.com/l/chat/0/0?users=claudia.leal@rottasconstrutora.com.br" },
       { cargo: "Adm de Obra", nome: "Jaqueline Costa", teams: "https://teams.microsoft.com/l/chat/0/0?users=jaqueline.costa@rottasconstrutora.com.br" },
       { cargo: "Almoxarife", nome: "Luis Oliveira", tel: "5581996641537", teams: "https://teams.microsoft.com/l/chat/0/0?users=luis.oliveira@rottasconstrutora.com.br" },
-      { cargo: "Analista PCP", nome: "" },
+      { cargo: "Analista PCP", nome: "Mayra Nunes", teams: "https://teams.microsoft.com/l/chat/0/0?users=mayra.nunes@rottasconstrutora.com.br" },
       { cargo: "Analista Proj.", nome: "Renata", teams: "https://teams.microsoft.com/l/chat/0/0?users=renata.kuradomi@rottasconstrutora.com.br" },
       { cargo: "Analista Arq.", nome: "" },
       { cargo: "Fiscal", nome: "" }
@@ -505,7 +522,7 @@ const obras = [
       { cargo: "Analista de Eng.", nome: "Amanda Silva", tel: "5542999445432", teams: "https://teams.microsoft.com/l/chat/0/0?users=amanda.silva@rottasconstrutora.com.br" },
       { cargo: "Adm de Obra", nome: "" },
       { cargo: "Almoxarife", nome: "Isaias Silverio", tel: "5542988845809", teams: "https://teams.microsoft.com/l/chat/0/0?users=isaias.silverio@rottasconstrutora.com.br" },
-      { cargo: "Analista PCP", nome: "" },
+      { cargo: "Analista PCP", nome: "Hugo Reynaldo", teams: "https://teams.microsoft.com/l/chat/0/0?users=hugo.reynaldo@rottasconstrutora.com.br" },
       { cargo: "Analista Proj.", nome: "Hudson" },
       { cargo: "Analista Arq.", nome: "" },
       { cargo: "Fiscal", nome: "" }
@@ -541,7 +558,7 @@ const obras = [
       { cargo: "Analista de Eng.", nome: "Bruna Régio", tel: "5541992518244", teams: "https://teams.microsoft.com/l/chat/0/0?users=bruna.regio@rottasconstrutora.com.br" },
       { cargo: "Adm de Obra", nome: "Camila" },
       { cargo: "Almoxarife", nome: "Magdiel", tel: "5541995226366", teams: "https://teams.microsoft.com/l/chat/0/0?users=magdiel.naconecny@rottasconstrutora.com.br" },
-      { cargo: "Analista PCP", nome: "" },
+      { cargo: "Analista PCP", nome: "Bruno Favalli", teams: "https://teams.microsoft.com/l/chat/0/0?users=bruno.favalli@rottasconstrutora.com.br" },
       { cargo: "Analista Proj.", nome: "Gabriel", teams: "https://teams.microsoft.com/l/chat/0/0?users=gabriel.sequinel@rottasconstrutora.com.br" },
       { cargo: "Analista Arq.", nome: "" },
       { cargo: "Fiscal", nome: "" }
@@ -577,7 +594,7 @@ const obras = [
       { cargo: "Analista de Eng.", nome: "Gabriela Reis", tel: "5543991543039", teams: "https://teams.microsoft.com/l/chat/0/0?users=gabriela.reis@rottasconstrutora.com.br" },
       { cargo: "Adm de Obra", nome: "Allana Araujo", teams: "https://teams.microsoft.com/l/chat/0/0?users=allana.araujo@rottasconstrutora.com.br" },
       { cargo: "Almoxarife", nome: "Tiago Pereira", tel: "5543988447203", teams: "https://teams.microsoft.com/l/chat/0/0?users=tiago.pereira@rottasconstrutora.com.br" },
-      { cargo: "Analista PCP", nome: "" },
+      { cargo: "Analista PCP", nome: "Hugo Reynaldo", teams: "https://teams.microsoft.com/l/chat/0/0?users=hugo.reynaldo@rottasconstrutora.com.br" },
       { cargo: "Analista Proj.", nome: "Leticia", teams: "https://teams.microsoft.com/l/chat/0/0?users=leticia.fabri@rottasconstrutora.com.br" },
       { cargo: "Analista Arq.", nome: "" },
       { cargo: "Fiscal", nome: "" }
@@ -696,7 +713,24 @@ obras.forEach(o => {
       '<div class="popup-row"><strong>Unidades Totais</strong>' + (o.uh ? String(o.uh) : '—') + '</div>' +
       '<div class="popup-row"><strong>Metodologia</strong>' + (o.metodologia || '—') + '</div>' +
       '<div class="popup-row"><strong>Início</strong>' + (o.inicio || '—') + '</div>' +
-      '<div class="popup-row"><strong>Entrega Prevista</strong>' + (o.entrega || '—') + '</div>' +
+      (function() {
+        var entregaStr = o.entrega || '—';
+        var display = '—';
+        if (entregaStr !== '—') {
+          var parts = entregaStr.split('/');
+          var entregaDate = new Date(parseInt(parts[1]), parseInt(parts[0]) - 1, 1);
+          var now = new Date();
+          var meses = (entregaDate.getFullYear() - now.getFullYear()) * 12 + (entregaDate.getMonth() - now.getMonth());
+          if (meses > 0) {
+            display = '<span style="background:#eef4ff;color:#1a4f7a;border-radius:4px;padding:1px 7px;font-size:11px;font-weight:600;margin-right:6px">' + meses + ' meses</span>' + entregaStr;
+          } else if (meses === 0) {
+            display = '<span style="background:#fff8ee;color:#b45309;border-radius:4px;padding:1px 7px;font-size:11px;font-weight:600;margin-right:6px">Este mês</span>' + entregaStr;
+          } else {
+            display = '—';
+          }
+        }
+        return '<div class="popup-row"><strong>Entrega Prevista</strong>' + display + '</div>';
+      })() +
       equipHTML +
     '</div>' +
     fotosHTML;
@@ -766,7 +800,7 @@ function copiarDados(btn) {
 }
 
 // Active filters state
-const activeFilters = { estado: ['todos'], metodologia: ['todos'], linha: ['todos'] };
+const activeFilters = { estado: ['todos'], metodologia: ['todos'], linha: ['todos'], prazo: ['todos'] };
 
 function renderList() {
   const list = document.getElementById('obraList');
@@ -776,16 +810,42 @@ function renderList() {
     const okEstado = activeFilters.estado.includes('todos') || activeFilters.estado.includes(o.estado);
     const okMet    = activeFilters.metodologia.includes('todos') || activeFilters.metodologia.some(f => o.metodologia.includes(f));
     const okLinha  = activeFilters.linha.includes('todos') || activeFilters.linha.includes(o.linha);
+    const okPrazo = (function() {
+      if (activeFilters.prazo.includes('todos')) return true;
+      if (!o.entrega || o.entrega === '—') return false;
+      var parts = o.entrega.split('/');
+      var entregaDate = new Date(parseInt(parts[1]), parseInt(parts[0]) - 1, 1);
+      var now = new Date();
+      var meses = (entregaDate.getFullYear() - now.getFullYear()) * 12 + (entregaDate.getMonth() - now.getMonth());
+      var maxMeses = Math.min.apply(null, activeFilters.prazo.filter(f => f !== 'todos').map(Number));
+      return meses >= 0 && meses <= maxMeses;
+    })();
     const okSearch = !searchVal ||
       o.nome.toLowerCase().includes(searchVal) ||
       String(o.id).toLowerCase().includes(searchVal);
-    return okEstado && okMet && okLinha && okSearch;
+    return okEstado && okMet && okLinha && okPrazo && okSearch;
   });
+
+  // Sort by entrega when prazo filter active
+  if (!activeFilters.prazo.includes('todos')) {
+    filtradas.sort(function(a, b) {
+      function toMonths(o) {
+        if (!o.entrega || o.entrega === '—') return 9999;
+        var p = o.entrega.split('/');
+        var d = new Date(parseInt(p[1]), parseInt(p[0]) - 1, 1);
+        var now = new Date();
+        return (d.getFullYear() - now.getFullYear()) * 12 + (d.getMonth() - now.getMonth());
+      }
+      return toMonths(a) - toMonths(b);
+    });
+  }
 
   // Update UH counter
   const totalUH = filtradas.reduce((sum, o) => sum + (o.uh || 0), 0);
   const counter = document.getElementById('uh-counter');
   if (counter) counter.textContent = totalUH.toLocaleString('pt-BR') + ' UH';
+  const obrasCounter = document.getElementById('obras-counter');
+  if (obrasCounter) obrasCounter.textContent = filtradas.length + (filtradas.length === 1 ? ' obra' : ' obras');
   const headerUH = document.getElementById('header-uh');
   if (headerUH) headerUH.textContent = totalUH.toLocaleString('pt-BR');
 
@@ -848,18 +908,14 @@ document.querySelectorAll('[data-group]').forEach(group => {
     btn.addEventListener('click', () => {
       const grp = group.dataset.group;
       if (btn.dataset.filter === 'todos') {
-        // Select only "todos"
         group.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         activeFilters[grp] = ['todos'];
       } else {
-        // Toggle this filter, deselect "todos"
         group.querySelector('[data-filter="todos"]').classList.remove('active');
         btn.classList.toggle('active');
-        // Collect all active non-todos
         const selected = [...group.querySelectorAll('.filter-btn.active')].map(b => b.dataset.filter);
         if (selected.length === 0) {
-          // Nothing selected — revert to todos
           group.querySelector('[data-filter="todos"]').classList.add('active');
           activeFilters[grp] = ['todos'];
         } else {
@@ -870,6 +926,11 @@ document.querySelectorAll('[data-group]').forEach(group => {
     });
   });
 });
+
+function onPrazoChange(val) {
+  activeFilters.prazo = [val];
+  renderList();
+}
 
 renderList();
 
