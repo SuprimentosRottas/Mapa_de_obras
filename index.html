@@ -88,12 +88,12 @@
   #lightbox-next { right: 16px; }
 
   @media (max-width: 700px) {
-    /* Layout */
+    /* Layout: sidebar narrow left, map fills rest */
     .layout { flex-direction: row; }
     #map { flex: 1; min-width: 0; }
     .header-stats { display: none; }
 
-    /* Sidebar compacta */
+    /* Sidebar: narrow icon column */
     .sidebar {
       width: 52px;
       min-width: 52px;
@@ -103,60 +103,78 @@
       overflow: visible;
       z-index: 500;
     }
+    .sidebar-header { padding: 6px 4px; }
+
+    /* Hide desktop elements */
+    #obra-search { display: none !important; }
     .obra-list { display: none !important; }
-    .sidebar-header { padding: 8px 6px; }
-    .sidebar-header {
-      padding: 8px 12px 6px;
-    }
+    .sidebar-title { display: none !important; }
+    #obras-counter { display: none !important; }
+    #uh-counter { display: none !important; }
 
-    /* Esconde busca e filtros no mobile — deixa só os filtros essenciais */
-    #obra-search { font-size: 11px; padding: 6px 8px 6px 28px; }
-
-    /* Show filter toggle button on mobile */
+    /* Show mobile buttons */
     #mobile-filter-toggle { display: flex !important; }
-    #btn-desktop { display: flex !important; }
     #mobile-lista-toggle { display: flex !important; }
-    #filters-body { display: none !important; }
+    #btn-desktop { display: flex !important; }
+
+    /* Filters panel: slides in from left as overlay */
+    #filters-body {
+      display: none;
+      position: fixed;
+      left: 52px;
+      top: 0;
+      bottom: 0;
+      width: 240px;
+      background: #fff;
+      border-right: 1px solid var(--border);
+      box-shadow: 4px 0 16px rgba(0,0,0,.15);
+      z-index: 1500;
+      padding: 12px;
+      flex-direction: column;
+      gap: 10px;
+      overflow-y: auto;
+    }
     #filters-body.open { display: flex !important; }
 
-    /* Filtros em linha horizontal scrollável */
-    .filter-bar { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 2px; }
-    .filter-btn { font-size: 11px; padding: 3px 8px; white-space: nowrap; }
+    /* Lista panel: slides in from left as overlay */
+    #mobile-lista-panel {
+      display: none;
+      position: fixed;
+      left: 52px;
+      top: 0;
+      bottom: 0;
+      width: 240px;
+      background: #fff;
+      border-right: 1px solid var(--border);
+      box-shadow: 4px 0 16px rgba(0,0,0,.15);
+      z-index: 1500;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #mobile-lista-panel.open { display: flex !important; }
+    #mobile-lista-panel .obra-list { display: block !important; overflow-y: auto; flex: 1; }
 
-    /* Itens da lista menores */
-    .obra-item { padding: 8px 12px; }
-    .obra-name { font-size: 13px; }
-    .obra-tags .tag { font-size: 10px; padding: 1px 6px; }
-
-    /* Popup menor e com scroll */
+    /* Popup */
     .custom-popup .leaflet-popup-content-wrapper {
       width: 78vw !important;
       max-width: 78vw !important;
-      max-height: 55vh !important;
-      overflow-y: auto;
       border-radius: 8px;
     }
-    .custom-popup .leaflet-popup-content {
-      width: auto !important;
-      margin: 0 !important;
-    }
-    .popup-row { font-size: 11px; }
+    .custom-popup .leaflet-popup-content { width: auto !important; margin: 0 !important; }
+    .popup-row { font-size: 11px; padding: 4px 0; }
+    .popup-head { padding: 10px 12px 8px; }
     .popup-head h3 { font-size: 13px; }
     .popup-addr { font-size: 10px; }
-    .custom-popup .leaflet-popup-content {
-      margin: 0 !important;
-      width: auto !important;
-    }
-    .popup-head { padding: 10px 12px 8px; }
-    .popup-head h3 { font-size: 14px; }
     .popup-body { padding: 8px 12px 10px; }
-    .popup-row { font-size: 11px; padding: 4px 0; }
-    .popup-section-title { font-size: 9px; }
 
-    /* Changelog menor */
+    /* Hide changelog */
     #changelog { display: none !important; }
-    #changelog-panel { font-size: 10px; }
-    .changelog-item { padding: 6px 10px; }
+
+    /* Filter buttons horizontal scroll */
+    .filter-bar { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 2px; }
+    .filter-btn { font-size: 11px; padding: 3px 8px; white-space: nowrap; }
+    .obra-item { padding: 8px 12px; }
+    .obra-name { font-size: 13px; }
   }
 
   #btn-desktop {
