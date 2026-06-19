@@ -48,8 +48,8 @@
   .metod-icons { display: flex; gap: 3px; align-items: center; }
   .metod-icons .material-symbols-outlined { font-size: 16px; color: var(--muted); }
   #map { flex: 1; z-index: 1; }
-  .custom-popup .leaflet-popup-content-wrapper { border-radius: 10px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); padding: 0; overflow: hidden; min-width: 270px; }
-  .custom-popup .leaflet-popup-content { margin: 0; }
+  .custom-popup .leaflet-popup-content-wrapper { border-radius: 10px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); padding: 0; overflow: hidden; width: 300px; }
+  .custom-popup .leaflet-popup-content { margin: 0 !important; width: 300px !important; }
   .custom-popup .leaflet-popup-tip { background: #fff; }
   .popup-head { background: var(--ink); padding: 14px 16px 12px; }
   .popup-head h3 { font-family: "Syne", sans-serif; font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 3px; }
@@ -109,6 +109,11 @@
     /* Esconde busca e filtros no mobile — deixa só os filtros essenciais */
     #obra-search { font-size: 11px; padding: 6px 8px 6px 28px; }
 
+    /* Show filter toggle button on mobile */
+    #mobile-filter-toggle { display: flex !important; }
+    #filters-body { display: none !important; }
+    #filters-body.open { display: flex !important; }
+
     /* Filtros em linha horizontal scrollável */
     .filter-bar { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 2px; }
     .filter-btn { font-size: 11px; padding: 3px 8px; white-space: nowrap; }
@@ -120,12 +125,19 @@
 
     /* Popup menor e com scroll */
     .custom-popup .leaflet-popup-content-wrapper {
-      max-width: 82vw !important;
-      max-height: 52vh;
+      width: 78vw !important;
+      max-width: 78vw !important;
+      max-height: 55vh !important;
       overflow-y: auto;
       border-radius: 8px;
-      font-size: 11px;
     }
+    .custom-popup .leaflet-popup-content {
+      width: auto !important;
+      margin: 0 !important;
+    }
+    .popup-row { font-size: 11px; }
+    .popup-head h3 { font-size: 13px; }
+    .popup-addr { font-size: 10px; }
     .custom-popup .leaflet-popup-content {
       margin: 0 !important;
       width: auto !important;
@@ -137,7 +149,7 @@
     .popup-section-title { font-size: 9px; }
 
     /* Changelog menor */
-    #changelog { width: 220px; top: 52px; right: 0; z-index: 2000; }
+    #changelog { display: none !important; }
     #changelog-panel { font-size: 10px; }
     .changelog-item { padding: 6px 10px; }
   }
@@ -150,8 +162,8 @@
   /* CHANGELOG */
   #changelog {
     position: fixed;
-    top: 56px;
-    right: 0;
+    bottom: 28px;
+    right: 10px;
     z-index: 2000;
     width: 260px;
     font-family: 'Inter', sans-serif;
@@ -159,7 +171,7 @@
   #changelog-toggle {
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: 8px 0 0 8px;
+    border-radius: 8px;
     padding: 7px 12px;
     font-size: 11px;
     font-weight: 600;
@@ -168,7 +180,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    box-shadow: -2px 2px 8px rgba(0,0,0,.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
     width: 100%;
     justify-content: space-between;
   }
@@ -177,8 +189,8 @@
     display: none;
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: 8px 0 0 8px;
-    box-shadow: -4px 4px 20px rgba(0,0,0,.12);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.12);
     margin-top: 6px;
     overflow: hidden;
   }
@@ -246,7 +258,8 @@
           <div id="uh-counter" style="font-size:11px;color:#5a6674;background:#f0f3f6;border-radius:5px;padding:3px 8px;font-weight:600"></div>
         </div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:8px">
+      <button id="mobile-filter-toggle" onclick="toggleMobileFilters()" style="display:none;width:100%;margin-bottom:8px;padding:7px 12px;background:#f5f7fa;border:1px solid #dde3ea;border-radius:6px;font-family:Inter,sans-serif;font-size:12px;font-weight:600;color:#5a6674;cursor:pointer;align-items:center;justify-content:space-between"><div style="display:flex;align-items:center;gap:6px"><span class="material-symbols-outlined" style="font-size:15px">tune</span>Filtros</div><span id="mobile-filter-arrow" style="font-size:12px;transition:transform .2s">▼</span></button>
+      <div id="filters-body" style="display:flex;flex-direction:column;gap:8px">
         <div>
           <div style="font-size:10px;color:#8a9aaa;font-weight:600;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px">Estado</div>
           <div class="filter-bar" data-group="estado">
@@ -742,6 +755,7 @@ function criarIcone(obra) {
 }
 
 const map = L.map('map', { zoomControl: true }).setView([-25.5, -49.5], 6);
+
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   attribution: '© OpenStreetMap © CARTO', subdomains: 'abcd', maxZoom: 19
 }).addTo(map);
@@ -847,7 +861,28 @@ obras.forEach(o => {
     fotosHTML;
 
   const marker = L.marker([o.lat, o.lng], { icon: criarIcone(o) }).addTo(map);
-  marker.bindPopup(popupHTML, { className: 'custom-popup', maxWidth: 320 });
+  marker.bindPopup(popupHTML, {
+    className: 'custom-popup',
+    maxWidth: 300,
+    autoPan: true,
+    autoPanPaddingTopLeft: L.point(320, 70),
+    autoPanPaddingBottomRight: L.point(320, 20)
+  });
+  marker.on('popupopen', function(e) {
+    setTimeout(function() {
+      var popup = e.popup.getElement();
+      if (!popup) return;
+      var mapContainer = map.getContainer();
+      var mapRect = mapContainer.getBoundingClientRect();
+      var popupRect = popup.getBoundingClientRect();
+      var offsetX = 0;
+      var offsetY = 0;
+      if (popupRect.right > mapRect.right - 5) offsetX = popupRect.right - mapRect.right + 15;
+      if (popupRect.left < mapRect.left + 5) offsetX = popupRect.left - mapRect.left - 15;
+      if (popupRect.top < mapRect.top + 60) offsetY = popupRect.top - mapRect.top - 70;
+      if (offsetX !== 0 || offsetY !== 0) map.panBy([offsetX, offsetY], { animate: true, duration: 0.3 });
+    }, 50);
+  });
   marker.on('click', () => {
     setActive(o.id);
     document.querySelector(`[data-id="${o.id}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -864,6 +899,15 @@ function setActive(id) {
 
 
 
+
+
+function toggleMobileFilters() {
+  var body = document.getElementById('filters-body');
+  var arrow = document.getElementById('mobile-filter-arrow');
+  var isOpen = body.classList.contains('open');
+  body.classList.toggle('open');
+  arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
+}
 
 function toggleChangelog() {
   var panel = document.getElementById('changelog-panel');
