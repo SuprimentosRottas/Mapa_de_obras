@@ -115,6 +115,7 @@
     /* Show filter toggle button on mobile */
     #mobile-filter-toggle { display: flex !important; }
     #btn-desktop { display: flex !important; }
+    #mobile-lista-toggle { display: flex !important; }
     #filters-body { display: none !important; }
     #filters-body.open { display: flex !important; }
 
@@ -174,10 +175,16 @@
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
-    display: flex;
     align-items: center;
     gap: 6px;
     box-shadow: 0 4px 12px rgba(0,0,0,.3);
+  }
+
+  /* Ensure filters always visible on desktop */
+  #filters-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
   .equipe-body {
@@ -285,6 +292,7 @@
         </div>
       </div>
       <button id="mobile-filter-toggle" onclick="toggleMobileFilters()" style="display:none;width:100%;padding:10px 6px;background:transparent;border:none;cursor:pointer;flex-direction:column;align-items:center;gap:4px;color:#5a6674"><span class="material-symbols-outlined" style="font-size:20px">tune</span><span style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">Filtros</span></button>
+<button id="mobile-lista-toggle" onclick="toggleMobileLista()" style="display:none;width:100%;padding:10px 6px;background:transparent;border:none;cursor:pointer;flex-direction:column;align-items:center;gap:4px;color:#5a6674;border-top:1px solid var(--border)"><span class="material-symbols-outlined" style="font-size:20px">format_list_bulleted</span><span style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">Lista</span></button>
       <div id="filters-body" style="display:flex;flex-direction:column;gap:8px">
         <div>
           <div style="font-size:10px;color:#8a9aaa;font-weight:600;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px">Estado</div>
@@ -330,7 +338,14 @@
         </div>
       </div>
     </div>
-    <div class="obra-list" id="obraList"></div>
+    <div id="mobile-lista-panel">
+      <div style="padding:10px 12px 6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#5a6674;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+        Obras
+        <button onclick="toggleMobileLista()" style="background:none;border:none;cursor:pointer"><span class="material-symbols-outlined" style="font-size:16px;color:#8a9aaa">close</span></button>
+      </div>
+      <div class="obra-list" id="obraList" style="display:block !important"></div>
+    </div>
+    <div class="obra-list" id="obraListDesktop"></div>
   </aside>
   <div id="map"></div>
 </div>
@@ -932,6 +947,16 @@ function forceDesktop() {
   var meta = document.querySelector('meta[name="viewport"]');
   if (meta) meta.content = 'width=1280';
   document.getElementById('btn-desktop').style.display = 'none';
+}
+
+function toggleMobileLista() {
+  var panel = document.getElementById('mobile-lista-panel');
+  var isOpen = panel.classList.contains('open');
+  panel.classList.toggle('open');
+  // Close filters if open
+  if (!isOpen) {
+    document.getElementById('filters-body').classList.remove('open');
+  }
 }
 
 function toggleMobileFilters() {
