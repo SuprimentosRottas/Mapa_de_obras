@@ -25,7 +25,7 @@
   .stat { text-align: right; }
   .stat-num { font-family: "Syne", sans-serif; font-size: 20px; font-weight: 800; color: var(--accent); line-height: 1; }
   .stat-label { font-size: 10px; color: #8a9aaa; text-transform: uppercase; letter-spacing: 0.8px; margin-top: 2px; }
-  .layout { display: flex; flex: 1; overflow: hidden; }
+  .layout { display: flex; flex: 1; overflow: hidden; min-height: 0; }
   .sidebar { width: var(--panel-w); background: var(--white); border-right: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; overflow: hidden; }
   .sidebar-header { padding: 16px 20px 12px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
   .sidebar-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 10px; }
@@ -33,14 +33,14 @@
   .filter-btn { padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border); background: transparent; font-family: "Inter", sans-serif; font-size: 12px; color: var(--muted); cursor: pointer; transition: all .15s; }
   .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
   .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 500; }
-  .obra-list { overflow-y: auto; flex: 1; padding: 8px 0; }
-  .obra-item { padding: 12px 20px; cursor: pointer; border-left: 3px solid transparent; transition: all .15s; border-bottom: 1px solid #f0f3f6; }
+  .obra-list { overflow-y: auto; flex: 1; min-height: 0; padding: 8px 0; }
+  .obra-item { padding: 7px 14px; cursor: pointer; border-left: 3px solid transparent; transition: all .15s; border-bottom: 1px solid #f0f3f6; }
   .obra-item:hover { background: var(--bg); border-left-color: var(--border); }
   .obra-item.active { background: var(--accent-light); border-left-color: var(--accent); }
-  .obra-name { font-weight: 600; font-size: 14px; color: var(--ink); margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
-  .obra-location { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
-  .obra-tags { display: flex; gap: 5px; margin-top: 7px; flex-wrap: wrap; align-items: center; }
-  .tag { padding: 2px 8px; border-radius: 3px; font-size: 11px; font-weight: 500; background: var(--bg); color: var(--muted); border: 1px solid var(--border); }
+  .obra-name { font-weight: 600; font-size: 13px; color: var(--ink); margin-bottom: 2px; display: flex; align-items: center; gap: 5px; }
+  .obra-location { font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+  .obra-tags { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; align-items: center; }
+  .tag { padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 500; background: var(--bg); color: var(--muted); border: 1px solid var(--border); }
   .tag.uh { background: #eef4ff; color: #1a4f7a; border-color: #c5d9f0; }
   .tag.torres { background: #f0faf0; color: #2a6b35; border-color: #b8e0be; }
   .tag.estado-sc { background: #fff8ee; color: #b45309; border-color: #f8d99a; }
@@ -369,16 +369,16 @@
         </div>
       </div>
     </div>
-    <div id="mobile-lista-panel">
-      <div style="padding:10px 12px 6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#5a6674;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
-        Obras
-        <button onclick="toggleMobileLista()" style="background:none;border:none;cursor:pointer"><span class="material-symbols-outlined" style="font-size:16px;color:#8a9aaa">close</span></button>
-      </div>
-      <div class="obra-list" id="obraList" style="display:block !important"></div>
-    </div>
-    <div class="obra-list" id="obraListDesktop"></div>
+    <div class="obra-list" id="obraList"></div>
   </aside>
   <div id="map"></div>
+</div>
+
+<div id="mobile-lista-panel">
+  <div style="padding:10px 12px 6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#5a6674;border-bottom:1px solid var(--border)">
+    Obras
+  </div>
+  <div id="obraListMobile" class="obra-list" style="display:block !important;flex:1;min-height:0;overflow-y:auto"></div>
 </div>
 
 <script>
